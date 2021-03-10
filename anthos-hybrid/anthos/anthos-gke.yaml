@@ -37,3 +37,40 @@ spec:
     allowedSSHCIDRBlocks:
     - ${SSH_CIDR_BLOCK}
   proxy: ${PROXY_JSON_FILE} # optional
+
+
+
+--------------------------------------------
+# Sample Code
+---
+ apiVersion: multicloud.cluster.gke.io/v1
+ kind: AWSManagementService
+ metadata:
+   name: management
+ spec:
+   version: aws-1.6.2-gke.0
+   region: us-west-2
+   authentication:
+     awsIAM:
+       adminIdentityARNs:
+       - arn:aws:iam::939571673831:user/anthos-user
+   kmsKeyARN: arn:aws:kms:us-west-2:939571673831:key/aad8e1e8-a33b-4a3b-xxx-xxxxxxxxxxx
+   databaseEncryption:
+     kmsKeyARN: arn:aws:kms:us-west-2:939571673831:key/aad8e1e8-a33b-4a3b-xxx-xxxxxxxxxxx
+   googleCloud:
+     projectID: c4c-sandbox-one
+     serviceAccountKeys:
+       managementService: management-key.json
+       connectAgent: hub-key.json
+       node: node-key.json
+   dedicatedVPC:
+     vpcCIDRBlock: 10.10.0.0/16
+     availabilityZones:
+     - us-west-2a
+     privateSubnetCIDRBlocks:
+     - 10.10.1.0/24
+     publicSubnetCIDRBlocks:
+     - 10.10.4.0/24
+   bastionHost:
+     allowedSSHCIDRBlocks:
+     - 0.0.0.0/0
