@@ -42,10 +42,10 @@ spec:
   # clusterName is required and must be unique among all managed clusters
   clusterName: my-cluster
   git:
-    syncRepo: git@github.com:ArctiqTeam/community-source.git
+    syncRepo: git@github.com/khaleel-cloud786/anthos.git
     syncBranch: "master"
     secretType: none
-    policyDir: "blogs/multi-cloud-app-deployment-with-gke-on-aws-and-gcp/anthosconfigmanagement"
+    policyDir: "anthosconfigmanagement"
   # If true, namespaces in an abstract namespace share inherited
   # ResourceQuotas in aggregate.
   enableAggregateNamespaceQuotas: false
